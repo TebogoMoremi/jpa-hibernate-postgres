@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             version="3.1">
+
+    <persistence-unit
+            name="eksPersistenceUnit"
+            transaction-type="RESOURCE_LOCAL">
+
+        <provider>
+            org.hibernate.jpa.HibernatePersistenceProvider
+        </provider>
+
+        <properties>
+
+            <!-- PostgreSQL JDBC Driver -->
+            <property
+                    name="jakarta.persistence.jdbc.driver"
+                    value="org.postgresql.Driver"/>
+
+            <!-- PostgreSQL Docker container -->
+            <property
+                    name="jakarta.persistence.jdbc.url"
+                    value="jdbc:postgresql://localhost:5432/eks_transactions"/>
+
+            <!-- PostgreSQL username -->
+            <property
+                    name="jakarta.persistence.jdbc.user"
+                    value="postgres"/>
+
+            <!-- PostgreSQL password -->
+            <property
+                    name="jakarta.persistence.jdbc.password"
+                    value="postgres"/>
+
+            <!-- Hibernate -->
+            <property
+                    name="hibernate.dialect"
+                    value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <!-- Create/update tables automatically -->
+            <property
+                    name="hibernate.hbm2ddl.auto"
+                    value="update"/>
+
+            <!-- Show SQL in Eclipse console -->
+            <property
+                    name="hibernate.show_sql"
+                    value="true"/>
+
+            <property
+                    name="hibernate.format_sql"
+                    value="true"/>
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
